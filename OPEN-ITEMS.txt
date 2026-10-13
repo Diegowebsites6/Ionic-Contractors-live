@@ -1,5 +1,5 @@
 ===============================================================================
-OPEN ITEMS — IONIC CONTRACTORS WEBSITE  (V13)
+OPEN ITEMS — IONIC CONTRACTORS WEBSITE  (V14)
 ===============================================================================
 
 Part A ticks off the round-2 handoff. Part B is what we still need from you.
@@ -159,6 +159,22 @@ V9 CHANGES
     sites list.
 [ ] Confirm group names and line names against the capability statement
     PDF when it arrives.
+
+V14 CHANGES
+[x] Hero no longer construction-only: "From solicitation to delivery."
+    "Hand us the solicitation, construction or not. We deliver the
+    requirement complete..." Resolve line and delivery cards generalized.
+[x] Past performance section on home (after Markets) with a U.S.
+    Department of Veterans Affairs tile. The build no longer blocks the
+    phrase "past performance" (client request, round 3).
+[ ] VA LOGO FILE: supply the approved VA logo, save it in
+    assets/img/clients/ and set its path as logo in pastPerformance
+    (build/site.mjs). Until then the tile shows a text lockup. VA
+    restricts use of its seal and logo: confirm permission first.
+[ ] Past performance details (contract, scope, year) if they may be shown.
+[x] Capabilities page illustrations: building in progress with tower
+    crane, maintained grounds with mower (construction); tracked
+    excavator, coach bus (non-construction). Code: build/scenes.mjs.
 
 V13 CHANGES
 [x] Building drawing removed from the closing band above the footer.

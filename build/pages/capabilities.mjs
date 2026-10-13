@@ -1,4 +1,5 @@
 import { capabilities, capabilityGroups, capsIn } from '../site.mjs';
+import { sceneStrip } from '../scenes.mjs';
 import {
   pageHero, sectionHead, ctaBand, icons, btn, btnRow, ctaPrimary, ctaSecondary,
   capabilityMatrix, accordion, esc, faqLD, deliveryCards,
@@ -38,7 +39,7 @@ const body = `
 ${pageHero({
   crumbs: [{ href: '/capabilities/', label: 'Capabilities' }],
   eyebrow: 'Capabilities',
-  title: 'A construction core, organized for the requirement.',
+  title: 'Two lines of business, organized for the requirement.',
   lead: `Two lines of business: construction services and non-construction services. ${capabilities.length} capability lines in all, each mapped to the NAICS codes agencies, primes, and owners search by.`,
   actions: btnRow(ctaPrimary(), btn('#matrix', 'Jump to capability matrix', { variant: 'secondary', arrow: false })),
 })}
@@ -50,6 +51,7 @@ ${pageHero({
       lead: esc(groupOf('construction').blurb),
       id: 'construction-title',
     })}
+    ${sceneStrip([['build', 'Buildings in progress: general construction &amp; trades'], ['grounds', 'Grounds, landscaping &amp; vegetation management']])}
     <div class="card card--pad-lg card--feature reveal" id="${esc(primary.id)}" style="gap:var(--s-5)">
       <div style="display:flex;align-items:center;gap:var(--s-4);flex-wrap:wrap">
         <span class="card__icon" style="margin:0">${icons.construction(26)}</span>
@@ -80,6 +82,7 @@ ${pageHero({
       lead: esc(groupOf('professional').blurb),
       id: 'professional-title',
     })}
+    ${sceneStrip([['equipment', 'Heavy equipment maintenance &amp; sourcing'], ['bus', 'Ground passenger transportation &amp; logistics']])}
     <div class="grid grid--3">
       ${capsIn('professional').map(lineCard).join('')}
     </div>

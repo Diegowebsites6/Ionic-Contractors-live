@@ -236,3 +236,26 @@ address.footer__address a { min-block-size: 0; }
 
 /* Blueprint motif: dashed slots */
 .bp-dash { stroke-dasharray: 4 4; }
+
+/* ==================================================================
+   CAPABILITY SCENES (capabilities page)
+================================================================== */
+.scenes { display: grid; gap: var(--gap); margin-block-end: var(--s-8); }
+@media (min-width: 48rem) { .scenes { grid-template-columns: repeat(2, 1fr); } }
+.scene { margin: 0; background: #0E0E11; border-radius: var(--r); overflow: hidden; border: 1px solid rgb(11 11 12 / 30%); }
+.scene__art { display: block; inline-size: 100%; block-size: auto; }
+.scene__caption { display: flex; align-items: baseline; gap: var(--s-3); padding: var(--s-4) var(--s-5); color: #E4E5E9; font-size: var(--fs-sm); font-weight: 600; border-block-start: 1px solid rgb(243 244 246 / 10%); }
+.scene__num { font-family: var(--font-mono); font-weight: 500; color: #8A8C94; }
+
+/* ==================================================================
+   PAST PERFORMANCE
+================================================================== */
+.pp { display: grid; gap: var(--s-7); align-items: center; }
+@media (min-width: 64rem) { .pp { grid-template-columns: 1fr 1fr; } .pp .section-head { margin-block-end: 0; } }
+.pp__logos { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.pp__logo { display: grid; place-items: center; min-block-size: 9rem; padding: var(--pad-card); background: #fff; border: 1px solid var(--c-line-mid); border-radius: var(--r); }
+.pp__logo img { max-inline-size: 100%; max-block-size: 5.5rem; inline-size: auto; block-size: auto; }
+.pp__lockup { display: flex; align-items: center; gap: var(--s-4); color: var(--c-text); }
+.pp__short { display: grid; place-items: center; inline-size: 3.5rem; block-size: 3.5rem; border: 2px solid currentColor; border-radius: 50%; font-weight: 800; font-stretch: 112%; letter-spacing: 0.04em; }
+.pp__name { display: flex; flex-direction: column; font-size: var(--fs-h4); font-weight: 750; font-stretch: 108%; line-height: 1.15; }
+.pp__name small { font-size: var(--fs-label); font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-text-3); }

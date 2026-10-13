@@ -1,6 +1,6 @@
 import { site, capabilities, naicsList, locations } from '../site.mjs';
 import {
-  btn, sectionHead, capabilityGroupsBlock, trustBar, capabilityCard, pathCard, ctaBand, statTile,
+  btn, sectionHead, pastPerformanceSection, capabilityGroupsBlock, trustBar, capabilityCard, pathCard, ctaBand, statTile,
   differentiatorsStrip, marketGrid, deliveryCards, marquee, projectsSection,
 } from '../components.mjs';
 import { heroSequence } from '../hero.mjs';
@@ -40,6 +40,8 @@ ${heroSequence()}
     ${marketGrid()}
   </div>
 </section>
+
+${pastPerformanceSection()}
 
 <section class="stats-band theme-dark" aria-labelledby="at-a-glance">
   <div class="wrap">

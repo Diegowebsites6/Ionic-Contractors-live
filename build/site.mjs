@@ -228,6 +228,13 @@ export const intents = {
 };
 
 /* Full NAICS list for the Federal Contracting page — GC primary first. */
+/* Past performance: agencies Ionic has delivered for. `logo` is a path
+   under assets/img/clients/ once the approved file is supplied; while
+   null, the agency name is set as a text lockup. */
+export const pastPerformance = [
+  { id: 'va', pre: 'U.S. Department of', name: 'Veterans Affairs', short: 'VA', logo: null },
+];
+
 export const naicsList = [
   { code: '236220', title: 'Commercial and Institutional Building Construction', primary: true },
   { code: '236210', title: 'Industrial Building Construction' },
@@ -274,20 +281,20 @@ export const delivery = [
   {
     id: 'mobilize',
     label: 'Mobilize',
-    title: 'Plan the site, stage the crews.',
-    body: 'Submittals, schedule, safety plan, and site logistics are locked before the first crew arrives. Equipment and vetted trade partners are staged where the work needs them.',
+    title: 'Plan the work, stage the team.',
+    body: 'Schedule, safety plan, and logistics are locked before work starts. Crews, equipment, vehicles, and vetted partners are staged where the requirement needs them.',
   },
   {
     id: 'execute',
     label: 'Execute',
-    title: 'Build to the plan, document every step.',
-    body: 'Daily supervision, quality control, and clear reporting keep the work on schedule and the owner informed. Every line of work is built to specification and documented as it goes.',
+    title: 'Deliver to the plan, document every step.',
+    body: 'Daily supervision, quality control, and clear reporting keep the work on schedule and the customer informed. Every requirement is met to specification and documented as it goes.',
   },
   {
     id: 'close-out',
     label: 'Close out',
     title: 'Turn it over complete.',
-    body: 'Punch lists closed, as-builts and warranties delivered, and a clean, zero-incident turnover. On time, on budget, and ready for use.',
+    body: 'Deliverables accepted, records and reports handed over, and a clean, zero-incident closeout. On time, on budget, and ready for use.',
   },
 ];
 

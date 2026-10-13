@@ -6,6 +6,7 @@
 import {
   site, addressLine, intents, capabilityGroups, capsIn, capabilities, capStatement, markets, delivery,
   differentiators, bonding, principals, leadershipReady, projects, locations,
+  pastPerformance,
 } from './site.mjs';
 import { PHOSPHOR } from './icons.mjs';
 import { blueprintArt } from './drawing.mjs';
@@ -334,6 +335,24 @@ export function accordion(items, { idPrefix = 'acc' } = {}) {
 /* ==================================================================
    CTA BAND — closing call to action, identical on every page
 ================================================================== */
+export function pastPerformanceSection() {
+  return `<section class="section theme-gray" id="past-performance" aria-labelledby="past-performance-title">
+  <div class="wrap pp">
+    ${sectionHead({
+      eyebrow: 'Past performance',
+      title: 'Delivered for the agencies we serve.',
+      lead: 'Ionic has performed for the U.S. Department of Veterans Affairs. Ask us for contract details and references.',
+      id: 'past-performance-title',
+    })}
+    <ul class="pp__logos" aria-label="Agencies served">
+      ${pastPerformance.map((a) => `<li class="pp__logo reveal">${a.logo
+        ? `<img src="${a.logo}" alt="${esc(a.pre + ' ' + a.name)}" loading="lazy" decoding="async">`
+        : `<span class="pp__lockup"><span class="pp__short">${esc(a.short)}</span><span class="pp__name"><small>${esc(a.pre)}</small>${esc(a.name)}</span></span>`}</li>`).join('')}
+    </ul>
+  </div>
+</section>`;
+}
+
 export function ctaBand({
   title = 'Have a requirement? Talk to us directly.',
   lead = 'Send the solicitation, the scope, or the question. A principal answers, usually the same business day.',

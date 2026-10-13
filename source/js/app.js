@@ -436,7 +436,7 @@
   }
 
   /* ================================================================
-     HOME SCROLL SEQUENCE: "From contract to keys"
+     HOME SCROLL SEQUENCE: "From solicitation to delivery"
      One project followed from paperwork to handover, then the proof.
      One timeline, 0-100 units = 0-100% of the pinned scroll.
        0-10  Contract    10-28 Mobilize    28-58 Execute

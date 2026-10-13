@@ -1,5 +1,5 @@
 /* ==================================================================
-   HOME - SCROLL SEQUENCE: "FROM CONTRACT TO KEYS" (blueprint)
+   HOME - SCROLL SEQUENCE: "FROM SOLICITATION TO DELIVERY" (blueprint)
    ------------------------------------------------------------------
    One project followed from paperwork to handover, drawn like an
    architect's set: fine white linework on black, one orange accent.
@@ -358,7 +358,7 @@ export function heroSequence() {
     `<svg class="seq__svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" focusable="false" ${extra}>`;
 
   return `${heroDefs()}
-<section class="seq theme-dark" id="top" data-seq aria-label="From contract to keys: how Ionic delivers a project">
+<section class="seq theme-dark" id="top" data-seq aria-label="From solicitation to delivery: how Ionic delivers a requirement">
   <div class="seq__pin" data-seq-pin>
 
     <!-- Three stacked layers sharing one coordinate system. Moving a
@@ -391,8 +391,8 @@ export function heroSequence() {
           ${frameSVG('frame-open')}
           <div class="seq__text">
             <p class="seq__kicker">${esc(site.descriptor)}</p>
-            <h1 class="seq__title seq__title--hero" data-split>From contract to keys.</h1>
-            <p class="seq__sub">Hand us the solicitation. We hand back a finished facility, for federal agencies, state and local governments, and private owners.</p>
+            <h1 class="seq__title seq__title--hero" data-split>From solicitation to delivery.</h1>
+            <p class="seq__sub">Hand us the solicitation, construction or not. We deliver the requirement complete, for federal agencies, state and local governments, and private owners.</p>
             <ul class="seq__creds" aria-label="Registrations">
               <li>SDVOSB certified</li><li>SAM registered</li><li>UEI <span class="code">${site.ids.uei}</span></li><li>CAGE <span class="code">${site.ids.cage}</span></li>
             </ul>
@@ -404,7 +404,7 @@ export function heroSequence() {
           <div class="seq__text">
             <p class="seq__label"><span class="seq__num">01</span>Mobilize</p>
             <h2 class="seq__title">The contract becomes a plan.</h2>
-            <p class="seq__sub">Schedule, safety plan, and logistics are locked before crews and equipment arrive. Every trade has its place before day one.</p>
+            <p class="seq__sub">Schedule, safety plan, and logistics are locked before crews and equipment arrive. Every capability has its place before day one.</p>
           </div>
         </div>
 
@@ -465,7 +465,7 @@ export function heroSequence() {
     <div class="seq__resolve theme-light" data-beat="resolve">
       <div class="seq__resolve-inner wrap">
         ${logoImg('color', { cls: 'seq__logo', width: 480, sizes: '(min-width: 48rem) 26rem, 72vw', alt: 'Ionic Contractors' })}
-        <p class="seq__resolve-line">One accountable partner, from contract to keys.</p>
+        <p class="seq__resolve-line">One accountable partner, from solicitation to delivery.</p>
         <div class="btn-row seq__cta">
           ${btn(capHref, capLabel, { variant: 'primary', attrs: capAttrs })}
         </div>

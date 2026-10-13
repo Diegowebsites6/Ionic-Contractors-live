@@ -1,5 +1,5 @@
 ===============================================================================
-IONIC CONTRACTORS - WEBSITE  (V13)
+IONIC CONTRACTORS - WEBSITE  (V14)
 Veteran-owned SDVOSB general contractor · federal, state & local, private
 ===============================================================================
 
@@ -27,7 +27,7 @@ REBUILD IT     node build/build.mjs      (or: npm run build / npm run dev)
 The build prints a size report, then audits every page: broken links,
 absolute paths, alt text, image sizes, labels, one <h1>, meta tags — and
 the round-2 content rules. It FAILS if any page contains "LLC", "Ionic
-Group", "past performance", "Prime or team", "self-perform", a "Needs
+Group", "Prime or team", "self-perform", a "Needs
 input" / [Placeholder] dev note, UK spellings (enquiry, organise,
 programme…), or a double-escaped entity like "&amp;amp;".
 
