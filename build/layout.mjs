@@ -252,6 +252,7 @@ function footer() {
             <span class="badge">UEI&nbsp; <span class="code">${site.ids.uei}</span></span>
             <span class="badge">CAGE&nbsp; <span class="code">${site.ids.cage}</span></span>
           </div>
+          <div class="footer__seal"><img src="/assets/img/badges/sdvosb-cve-240.webp" width="112" height="108" alt="Service-Disabled Veteran-Owned Small Business (SDVOSB)" loading="lazy" decoding="async"></div>
         </div>
 
         <div>

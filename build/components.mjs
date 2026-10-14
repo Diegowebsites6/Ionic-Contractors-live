@@ -346,7 +346,7 @@ export function pastPerformanceSection() {
     })}
     <ul class="pp__logos" aria-label="Agencies served">
       ${pastPerformance.map((a) => `<li class="pp__logo reveal">${a.logo
-        ? `<img src="${a.logo}" alt="${esc(a.pre + ' ' + a.name)}" loading="lazy" decoding="async">`
+        ? `<span class="pp__lockup"><img class="pp__seal" src="${a.logo}" width="96" height="96" alt="${esc(a.pre + ' ' + a.name)} seal" loading="lazy" decoding="async"><span class="pp__name"><small>${esc(a.pre)}</small>${esc(a.name)}</span></span>`
         : `<span class="pp__lockup"><span class="pp__short">${esc(a.short)}</span><span class="pp__name"><small>${esc(a.pre)}</small>${esc(a.name)}</span></span>`}</li>`).join('')}
     </ul>
   </div>

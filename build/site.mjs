@@ -232,7 +232,7 @@ export const intents = {
    under assets/img/clients/ once the approved file is supplied; while
    null, the agency name is set as a text lockup. */
 export const pastPerformance = [
-  { id: 'va', pre: 'U.S. Department of', name: 'Veterans Affairs', short: 'VA', logo: null },
+  { id: 'va', pre: 'U.S. Department of', name: 'Veterans Affairs', short: 'VA', logo: '/assets/img/clients/va-seal-240.webp' },
 ];
 
 export const naicsList = [

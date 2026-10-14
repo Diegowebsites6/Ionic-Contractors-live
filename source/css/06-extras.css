@@ -259,3 +259,8 @@ address.footer__address a { min-block-size: 0; }
 .pp__short { display: grid; place-items: center; inline-size: 3.5rem; block-size: 3.5rem; border: 2px solid currentColor; border-radius: 50%; font-weight: 800; font-stretch: 112%; letter-spacing: 0.04em; }
 .pp__name { display: flex; flex-direction: column; font-size: var(--fs-h4); font-weight: 750; font-stretch: 108%; line-height: 1.15; }
 .pp__name small { font-size: var(--fs-label); font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-text-3); }
+
+/* Agency seal in the past-performance tile; SDVOSB seal in the footer */
+.pp__seal { inline-size: 6rem; block-size: 6rem; flex: none; }
+.footer__seal { display: inline-grid; place-items: center; margin-block-start: var(--s-5); padding: var(--s-3); background: #fff; border-radius: var(--r); }
+.footer__seal img { inline-size: 6rem; block-size: auto; }

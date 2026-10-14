@@ -1,5 +1,5 @@
 ===============================================================================
-OPEN ITEMS — IONIC CONTRACTORS WEBSITE  (V14)
+OPEN ITEMS — IONIC CONTRACTORS WEBSITE  (V15)
 ===============================================================================
 
 Part A ticks off the round-2 handoff. Part B is what we still need from you.
@@ -160,6 +160,13 @@ V9 CHANGES
 [ ] Confirm group names and line names against the capability statement
     PDF when it arrives.
 
+V15 CHANGES
+[x] VA seal in the Past performance tile (home).
+[x] SDVOSB (CVE) seal in the footer of every page.
+[ ] Note: the CVE mark is from the VA verification program that moved
+    to SBA VetCert in 2023. If SBA supplies a VetCert badge, swap the file
+    at assets/img/badges/. Confirm permission to show the VA seal.
+
 V14 CHANGES
 [x] Hero no longer construction-only: "From solicitation to delivery."
     "Hand us the solicitation, construction or not. We deliver the
@@ -167,7 +174,7 @@ V14 CHANGES
 [x] Past performance section on home (after Markets) with a U.S.
     Department of Veterans Affairs tile. The build no longer blocks the
     phrase "past performance" (client request, round 3).
-[ ] VA LOGO FILE: supply the approved VA logo, save it in
+[x] VA LOGO FILE (V15): VA seal supplied and placed. Previously: supply the approved VA logo, save it in
     assets/img/clients/ and set its path as logo in pastPerformance
     (build/site.mjs). Until then the tile shows a text lockup. VA
     restricts use of its seal and logo: confirm permission first.
