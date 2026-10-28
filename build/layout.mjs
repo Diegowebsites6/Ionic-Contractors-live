@@ -385,7 +385,7 @@ ${site.searchConsoleToken ? `<meta name="google-site-verification" content="${es
 
 <!-- Self-hosted fonts: preload the one face used above the fold -->
 <link rel="preload" href="/assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/site.css?v=17">
 ${preload}
 
 <script>
@@ -427,7 +427,7 @@ ${footer()}
 <script src="/js/gsap-3.15.0.min.js" defer></script>
 <script src="/js/ScrollTrigger-3.15.0.min.js" defer></script>
 <script src="/js/lenis-1.1.18.min.js" defer></script>
-<script src="/js/app.js" defer></script>
+<script src="/js/app.js?v=17" defer></script>
 </body>
 </html>`;
 }

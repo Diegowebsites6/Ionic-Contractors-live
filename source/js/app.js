@@ -895,11 +895,9 @@
     var body = lines.join('\n');
 
     if (endpoint) {
-      /* GoHighLevel inbound webhook. A urlencoded POST is a "simple"
-         request (no CORS preflight) and no-cors lets it go through
-         even though the webhook sends no CORS headers; the response is
-         opaque, so any resolved request counts as delivered. Only a
-         network failure falls back to email. */
+      /* GoHighLevel inbound webhook (answers 200 and allows any origin).
+         A urlencoded POST needs no preflight. A failed or non-200
+         response falls back to the visitor's email app. */
       var fields = {};
       Array.prototype.forEach.call(form.elements, function (el) {
         if (!el.name || el.hasAttribute('data-hp') || el.type === 'file' || el.type === 'submit') return;
@@ -910,6 +908,17 @@
       });
       var payload = new URLSearchParams();
       Object.keys(fields).forEach(function (k) { payload.set(k, fields[k]); });
+      /* Standard contact keys for GoHighLevel, derived from whichever
+         field names this form uses */
+      var pick = function (keys) { for (var i = 0; i < keys.length; i++) { if (fields[keys[i]]) return fields[keys[i]]; } return ''; };
+      var full = pick(['name', 'contact', 'poc_name']);
+      var parts = full.split(/\s+/);
+      payload.set('full_name', full);
+      payload.set('first_name', parts[0] || '');
+      payload.set('last_name', parts.slice(1).join(' '));
+      payload.set('email', pick(['email', 'poc_email']));
+      payload.set('phone', pick(['phone', 'poc_phone']));
+      payload.set('company_name', pick(['organization', 'company', 'agency']));
       payload.set('lead_type', leadType);
       payload.set('form_id', form.id || '');
       payload.set('subject', subject);
@@ -917,8 +926,8 @@
       payload.set('submitted_at', new Date().toISOString());
       payload.set('message_summary', body);
       if (files.length) payload.set('files_selected', files.join('; '));
-      fetch(endpoint, { method: 'POST', mode: 'no-cors', body: payload })
-        .then(function () { showSuccess(form, status, null, files.length > 0); })
+      fetch(endpoint, { method: 'POST', body: payload })
+        .then(function (r) { if (!r.ok) throw new Error('webhook ' + r.status); showSuccess(form, status, null, files.length > 0); })
         .catch(function () { mailtoFallback(form, status, to, subject, body); });
       return;
     }

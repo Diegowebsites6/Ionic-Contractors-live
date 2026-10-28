@@ -1,5 +1,5 @@
 ===============================================================================
-OPEN ITEMS — IONIC CONTRACTORS WEBSITE  (V16)
+OPEN ITEMS — IONIC CONTRACTORS WEBSITE  (V17)
 ===============================================================================
 
 Part A ticks off the round-2 handoff. Part B is what we still need from you.
@@ -159,6 +159,11 @@ V9 CHANGES
     sites list.
 [ ] Confirm group names and line names against the capability statement
     PDF when it arrives.
+
+V17 CHANGES
+[x] Forms: real response check (200 = delivered, otherwise email fallback).
+    GHL also gets first_name, last_name, full_name, email, phone and
+    company_name. CSS/JS links carry ?v=17 so cached copies are replaced.
 
 V16 CHANGES
 [x] Home past-performance heading is now "Agencies we serve."
