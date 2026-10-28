@@ -37,6 +37,12 @@ createServer((req, res) => {
   let urlPath = decodeURIComponent(req.url.split('?')[0]);
   if (urlPath === '/' || urlPath === '') urlPath = '/index.html';
 
+  /* Clean URLs: /contact serves contact.html, like the live host. */
+  {
+    const probe = path.join(ROOT, path.normalize(urlPath).replace(/^([/\\\\])+/, ''));
+    if (!path.extname(urlPath) && !existsSync(probe) && existsSync(probe + '.html')) urlPath += '.html';
+  }
+
   /* Keep the server inside the project directory. */
   const file = path.join(ROOT, path.normalize(urlPath).replace(/^([/\\])+/, ''));
   if (!file.startsWith(ROOT)) {

@@ -850,13 +850,31 @@
                       : n + ' fields need attention before this can be sent.';
           }
           firstBad.focus();
+          if (status && status.scrollIntoView) status.scrollIntoView({ behavior: 'smooth', block: 'center' });
           return;
         }
 
         if (status) status.removeAttribute('data-state');
+        setSending(form, status, true);
         submitForm(form, status);
       });
     });
+  }
+
+  /* Click feedback: the button disables and the status says "Sending"
+     the instant a valid form is submitted, so it never looks dead. */
+  function setSending(form, status, on) {
+    var btn = form.querySelector('button[type="submit"]');
+    if (btn) {
+      btn.disabled = on;
+      if (on) { btn.setAttribute('data-label', btn.innerHTML); btn.textContent = 'Sending...'; }
+      else if (btn.getAttribute('data-label')) { btn.innerHTML = btn.getAttribute('data-label'); }
+    }
+    if (on && status) {
+      status.setAttribute('data-state', 'sending');
+      var t = status.querySelector('[data-status-text]');
+      if (t) t.textContent = 'Sending your message...';
+    }
   }
 
   function submitForm(form, status) {
@@ -926,9 +944,12 @@
       payload.set('submitted_at', new Date().toISOString());
       payload.set('message_summary', body);
       if (files.length) payload.set('files_selected', files.join('; '));
-      fetch(endpoint, { method: 'POST', body: payload })
+      var ctl = window.AbortController ? new AbortController() : null;
+      var timer = window.setTimeout(function () { if (ctl) ctl.abort(); }, 12000);
+      fetch(endpoint, { method: 'POST', body: payload, signal: ctl ? ctl.signal : undefined })
         .then(function (r) { if (!r.ok) throw new Error('webhook ' + r.status); showSuccess(form, status, null, files.length > 0); })
-        .catch(function () { mailtoFallback(form, status, to, subject, body); });
+        .catch(function () { mailtoFallback(form, status, to, subject, body); })
+        .then(function () { window.clearTimeout(timer); });
       return;
     }
 
@@ -944,6 +965,7 @@
   }
 
   function showSuccess(form, status, mailHref, hadFiles) {
+    setSending(form, status, false);
     if (!status) return;
     status.setAttribute('data-state', 'success');
     var text = status.querySelector('[data-status-text]');
@@ -957,8 +979,10 @@
       text.textContent = 'Thank you. Your inquiry has been received. We respond to agency, owner, and teaming inquiries promptly, usually the same business day.' +
         (hadFiles ? ' We will reply to you by email so you can send the files you selected.' : '');
       form.reset();
+      form.setAttribute('data-sent', 'true');
     }
     status.focus && status.focus();
+    if (status.scrollIntoView) status.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   /* ================================================================

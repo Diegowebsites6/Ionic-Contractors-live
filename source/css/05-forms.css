@@ -250,3 +250,9 @@
 
 /* Honeypot — hidden from people, catches naive bots */
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Sending / sent states */
+.form__status[data-state='sending'] { display: flex; color: var(--c-text-2); border-color: var(--c-line-mid); background: var(--c-surface); }
+.form button[type='submit']:disabled { opacity: 0.6; cursor: progress; }
+.form[data-sent='true'] > :not(.form__status):not(.hp) { display: none; }
+.form[data-sent='true'] .form__status { padding: var(--s-7) var(--s-6); font-size: var(--fs-lead); font-weight: 600; text-align: start; }

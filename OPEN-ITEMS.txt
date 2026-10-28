@@ -1,5 +1,5 @@
 ===============================================================================
-OPEN ITEMS — IONIC CONTRACTORS WEBSITE  (V17)
+OPEN ITEMS — IONIC CONTRACTORS WEBSITE  (V18)
 ===============================================================================
 
 Part A ticks off the round-2 handoff. Part B is what we still need from you.
@@ -159,6 +159,14 @@ V9 CHANGES
     sites list.
 [ ] Confirm group names and line names against the capability statement
     PDF when it arrives.
+
+V18 CHANGES
+[x] Clean URLs: /contact, /about, /capabilities (no .html). Links,
+    canonicals, sitemap and breadcrumbs updated. The host must serve
+    /contact from contact.html (GitHub Pages does). Old .html addresses
+    still open; canonical tags point search engines to the clean ones.
+[x] Forms show "Sending..." at once, time out after 12 seconds to the
+    email fallback, and replace the form with a confirmation when sent.
 
 V17 CHANGES
 [x] Forms: real response check (200 = delivered, otherwise email fallback).

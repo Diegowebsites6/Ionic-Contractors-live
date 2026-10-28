@@ -1,5 +1,5 @@
 ===============================================================================
-IONIC CONTRACTORS - WEBSITE  (V17)
+IONIC CONTRACTORS - WEBSITE  (V18)
 Veteran-owned SDVOSB general contractor · federal, state & local, private
 ===============================================================================
 
@@ -15,7 +15,8 @@ is still needed (capability statement PDF, principals, legal text).
 1. QUICK START
 -------------------------------------------------------------------------------
 
-VIEW IT        double-click index.html, or
+VIEW IT        node preview.mjs (clean URLs like /contact; links do not
+               work from a double-clicked file), or
                node preview.mjs          ->  http://localhost:4321
 
 DEPLOY IT      upload this folder to any static host (GitHub Pages works,

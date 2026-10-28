@@ -359,5 +359,5 @@ export function flatten(url) {
 /* Absolute url for canonicals, Open Graph and the sitemap. */
 export function canonicalFor(url) {
   const file = flatten(url);
-  return site.origin + '/' + (file === 'index.html' ? '' : file);
+  return site.origin + '/' + (file === 'index.html' ? '' : file.replace(/\.html$/, ''));
 }
