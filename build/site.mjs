@@ -231,6 +231,9 @@ export const intents = {
 /* Past performance: agencies Ionic has delivered for. `logo` is a path
    under assets/img/clients/ once the approved file is supplied; while
    null, the agency name is set as a text lockup. */
+/* Every form on the site posts here (GoHighLevel inbound webhook). */
+export const formWebhook = 'https://services.leadconnectorhq.com/hooks/4KRtzpJ7NhPguzLhuPTk/webhook-trigger/a1da3933-1684-4167-bcec-30123afab6dd';
+
 export const pastPerformance = [
   { id: 'va', pre: 'U.S. Department of', name: 'Veterans Affairs', short: 'VA', logo: '/assets/img/clients/va-seal-240.webp' },
 ];

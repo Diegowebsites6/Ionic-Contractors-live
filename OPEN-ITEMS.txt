@@ -1,5 +1,5 @@
 ===============================================================================
-OPEN ITEMS — IONIC CONTRACTORS WEBSITE  (V15)
+OPEN ITEMS — IONIC CONTRACTORS WEBSITE  (V16)
 ===============================================================================
 
 Part A ticks off the round-2 handoff. Part B is what we still need from you.
@@ -159,6 +159,16 @@ V9 CHANGES
     sites list.
 [ ] Confirm group names and line names against the capability statement
     PDF when it arrives.
+
+V16 CHANGES
+[x] Home past-performance heading is now "Agencies we serve."
+[x] All four forms (contact, teaming, invite to bid, subcontractor
+    registration) POST to the GoHighLevel webhook (formWebhook in
+    build/site.mjs). Fields arrive as plain names plus lead_type, form_id,
+    subject, page_url, submitted_at and message_summary. If the network
+    fails the form falls back to email. File uploads are not sent: file
+    names arrive in files_selected and the visitor is told we will reply.
+[ ] In GHL, send one test submission and map the fields in the workflow.
 
 V15 CHANGES
 [x] VA seal in the Past performance tile (home).

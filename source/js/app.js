@@ -895,11 +895,30 @@
     var body = lines.join('\n');
 
     if (endpoint) {
-      var data = new FormData(form);
-      data.append('lead_type', leadType);
-      fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
-        .then(function (r) { if (!r.ok) throw new Error('bad status'); return r; })
-        .then(function () { showSuccess(form, status, null); })
+      /* GoHighLevel inbound webhook. A urlencoded POST is a "simple"
+         request (no CORS preflight) and no-cors lets it go through
+         even though the webhook sends no CORS headers; the response is
+         opaque, so any resolved request counts as delivered. Only a
+         network failure falls back to email. */
+      var fields = {};
+      Array.prototype.forEach.call(form.elements, function (el) {
+        if (!el.name || el.hasAttribute('data-hp') || el.type === 'file' || el.type === 'submit') return;
+        if ((el.type === 'checkbox' || el.type === 'radio') && !el.checked) return;
+        var v = (el.value || '').trim();
+        if (!v) return;
+        fields[el.name] = fields[el.name] ? fields[el.name] + ', ' + v : v;
+      });
+      var payload = new URLSearchParams();
+      Object.keys(fields).forEach(function (k) { payload.set(k, fields[k]); });
+      payload.set('lead_type', leadType);
+      payload.set('form_id', form.id || '');
+      payload.set('subject', subject);
+      payload.set('page_url', window.location.href);
+      payload.set('submitted_at', new Date().toISOString());
+      payload.set('message_summary', body);
+      if (files.length) payload.set('files_selected', files.join('; '));
+      fetch(endpoint, { method: 'POST', mode: 'no-cors', body: payload })
+        .then(function () { showSuccess(form, status, null, files.length > 0); })
         .catch(function () { mailtoFallback(form, status, to, subject, body); });
       return;
     }
@@ -915,7 +934,7 @@
     window.setTimeout(function () { window.location.href = href; }, 250);
   }
 
-  function showSuccess(form, status, mailHref) {
+  function showSuccess(form, status, mailHref, hadFiles) {
     if (!status) return;
     status.setAttribute('data-state', 'success');
     var text = status.querySelector('[data-status-text]');
@@ -926,7 +945,8 @@
         '<a href="' + mailHref + '">click here to open it manually</a> or email ' +
         '<a href="mailto:service@ionic.contractors">service@ionic.contractors</a> directly.';
     } else {
-      text.textContent = 'Thank you. Your inquiry has been received. We respond to agency, owner, and teaming inquiries promptly, usually the same business day.';
+      text.textContent = 'Thank you. Your inquiry has been received. We respond to agency, owner, and teaming inquiries promptly, usually the same business day.' +
+        (hadFiles ? ' We will reply to you by email so you can send the files you selected.' : '');
       form.reset();
     }
     status.focus && status.focus();

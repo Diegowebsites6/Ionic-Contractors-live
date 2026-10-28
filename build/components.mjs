@@ -6,7 +6,7 @@
 import {
   site, addressLine, intents, capabilityGroups, capsIn, capabilities, capStatement, markets, delivery,
   differentiators, bonding, principals, leadershipReady, projects, locations,
-  pastPerformance,
+  pastPerformance, formWebhook,
 } from './site.mjs';
 import { PHOSPHOR } from './icons.mjs';
 import { blueprintArt } from './drawing.mjs';
@@ -340,7 +340,7 @@ export function pastPerformanceSection() {
   <div class="wrap pp">
     ${sectionHead({
       eyebrow: 'Past performance',
-      title: 'Delivered for the agencies we serve.',
+      title: 'Agencies we serve.',
       lead: 'Ionic has performed for the U.S. Department of Veterans Affairs. Ask us for contract details and references.',
       id: 'past-performance-title',
     })}
@@ -489,8 +489,8 @@ export function checkboxGroup({ name, legend, options, hint = '' }) {
    - `action` is a real mailto so a JS-disabled submit still reaches
      an inbox rather than doing nothing.
    - app.js intercepts, validates, and composes a cleaner message.
-   - `data-endpoint` is empty until the backend phase; setting it
-     switches the form to POST.
+   - `data-endpoint` is the GoHighLevel webhook (site.mjs, formWebhook).
+     app.js POSTs there; if the network fails it falls back to mailto.
    - The honeypot is hidden from people AND from assistive tech.
 ------------------------------------------------------------------- */
 export function formShell({ id, leadType, subject, children, submitLabel = 'Send', note = '' }) {
@@ -499,7 +499,7 @@ export function formShell({ id, leadType, subject, children, submitLabel = 'Send
         data-lead-type="${attr(leadType)}"
         data-subject="${attr(subject)}"
         data-to="${site.email}"
-        data-endpoint=""
+        data-endpoint="${formWebhook}"
         method="post"
         enctype="text/plain"
         action="mailto:${site.email}?subject=${encodeURIComponent(subject)}"
